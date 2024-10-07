@@ -112,7 +112,7 @@ var getWeekOfMonth = (date) => {
 var getWeekOfMonth_default = getWeekOfMonth;
 
 // src/getNextWeekOfMonth.ts
-var getNextWeekOfMonth = (year, month, weekOfMonth2) => {
+var getNextWeekOfMonth = (year, month, weekOfMonth) => {
   const theseMonthLastDay = new Date(year, month, 0).getDate();
   const weekdayTheseMonthLastDay = new Date(year, month, 0).getDay();
   const { weekOfMonth: lastWeekOfTheseMonth } = getWeekOfMonth_default(
@@ -125,7 +125,7 @@ var getNextWeekOfMonth = (year, month, weekOfMonth2) => {
       theseMonthLastDay - weekdayTheseMonthLastDay
     )
   ).weekOfMonth;
-  if (weekOfMonth2 === totalWeeksInTheseMonth) {
+  if (weekOfMonth === totalWeeksInTheseMonth) {
     return {
       year: month + 1 > 12 ? year + 1 : year,
       month: month + 1 > 12 ? 1 : month + 1,
@@ -135,14 +135,14 @@ var getNextWeekOfMonth = (year, month, weekOfMonth2) => {
     return {
       year,
       month,
-      weekOfMonth: weekOfMonth2 + 1
+      weekOfMonth: weekOfMonth + 1
     };
   }
 };
 var getNextWeekOfMonth_default = getNextWeekOfMonth;
 
 // src/getPrevWeekOfMonth.ts
-var getPrevWeekOfMonth = (year, month, weekOfMonth2) => {
+var getPrevWeekOfMonth = (year, month, weekOfMonth) => {
   const prevMonthLastDay = new Date(year, month - 1, 0).getDate();
   const weekdayPrevMonthLastDay = new Date(year, month - 1, 0).getDay();
   const { weekOfMonth: prevMonthLastWeek } = getWeekOfMonth_default(
@@ -151,7 +151,7 @@ var getPrevWeekOfMonth = (year, month, weekOfMonth2) => {
   const totalWeeksInPrevMonth = prevMonthLastWeek === 5 || prevMonthLastWeek === 4 ? prevMonthLastWeek : getWeekOfMonth_default(
     new Date(year, month - 2, prevMonthLastDay - weekdayPrevMonthLastDay)
   ).weekOfMonth;
-  if (weekOfMonth2 === 1) {
+  if (weekOfMonth === 1) {
     return {
       year: month - 1 <= 0 ? year - 1 : year,
       month: month - 1 <= 0 ? 12 : month - 1,
@@ -161,29 +161,11 @@ var getPrevWeekOfMonth = (year, month, weekOfMonth2) => {
     return {
       year,
       month,
-      weekOfMonth: weekOfMonth2 - 1
+      weekOfMonth: weekOfMonth - 1
     };
   }
 };
 var getPrevWeekOfMonth_default = getPrevWeekOfMonth;
-
-// src/index.ts
-var weekOfMonth = getWeekOfMonth_default(/* @__PURE__ */ new Date());
-console.log(weekOfMonth);
-console.log(
-  getNextWeekOfMonth_default(
-    weekOfMonth.year,
-    weekOfMonth.month,
-    weekOfMonth.weekOfMonth
-  )
-);
-console.log(
-  getPrevWeekOfMonth_default(
-    weekOfMonth.year,
-    weekOfMonth.month,
-    weekOfMonth.weekOfMonth
-  )
-);
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   getNextWeekOfMonth,
