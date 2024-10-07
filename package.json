@@ -2,19 +2,29 @@
   "name": "week-of-month",
   "version": "1.0.0",
   "description": "weekOfMonth library based on ISO 8601",
+  "repository": {
+    "url": "https://github.com/tptkds/week-of-month"
+  },
+  "author": "tptkds",
+  "license": "MIT",
+  "keywords": [
+    "week",
+    "ISO 8601",
+    "weekOfMonth",
+    "calendar",
+    "date"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsup"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "typescript": "^5.6.2"
   },
   "devDependencies": {
-    "tsup": "^8.3.0"
+    "tsup": "^8.3.0",
+    "publish": "npm publish --access public"
   }
 }
