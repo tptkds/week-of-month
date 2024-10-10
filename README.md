@@ -6,6 +6,7 @@ With this package, you can:
 
 - **Easily calculate the week of the month for a specific date.**
 - **Easily retrieve the previous or next week of the month for a specific week.**
+- **Easily get the dates for a specific week.**
 
 ## Install
 
@@ -41,4 +42,17 @@ const nextWeek = getNextWeekOfMonth(
   currentWeek.weekOfMonth
 );
 console.log(nextWeek); // Output: { year: 2025, month: 1, weekOfMonth: 2 }
+
+// Get the dates for the 2nd week of October 2024
+const dates = getWeekDates(2024, 10, 2);
+console.log(dates);
+// Output: [
+//   2024-10-07T00:00:00.000Z,
+//   2024-10-08T00:00:00.000Z,
+//   2024-10-09T00:00:00.000Z,
+//   2024-10-10T00:00:00.000Z,
+//   2024-10-11T00:00:00.000Z,
+//   2024-10-12T00:00:00.000Z,
+//   2024-10-13T00:00:00.000Z
+// ]
 ```
