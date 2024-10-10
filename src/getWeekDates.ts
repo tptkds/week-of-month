@@ -1,10 +1,11 @@
 import getWeekOfMonth from "./getWeekOfMonth";
+import { WeekDates } from "./type";
 
 const getWeekDates = (
   year: number,
   month: number,
   weekOfMonth: number
-): Date[] => {
+): WeekDates => {
   const days = [];
 
   let curDate = new Date();
