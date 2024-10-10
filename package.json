@@ -1,6 +1,6 @@
 {
   "name": "week-of-month",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "weekOfMonth library based on ISO 8601",
   "repository": {
     "url": "https://github.com/tptkds/week-of-month"
